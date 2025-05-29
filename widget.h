@@ -1,14 +1,13 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include "game.h"
+
 #include <QWidget>
 #include <QPaintEvent>
-#include <QMessageBox>
-#include <poker.h>
 
 QT_BEGIN_NAMESPACE
-namespace Ui
-{
+namespace Ui {
     class Widget;
 }
 QT_END_NAMESPACE
@@ -17,26 +16,22 @@ class Widget : public QWidget
 {
     Q_OBJECT
 private:
-    Poker poker;
-    QPainter painter;
-    bool shown = 0;
+    Game game;
+    QPainter paint;
 
 public:
-    Widget(QWidget *parent = nullptr);
+    Widget(QWidget* parent = nullptr);
     ~Widget();
 
-    void newGame();
-
-    void paintEvent(QPaintEvent *);
-
 private slots:
-    void on_HitBtn_clicked();
+    void on_newBtn_clicked();
 
-    void on_NewBtn_clicked();
+    void on_hitBtn_clicked();
 
-    void on_StandBtn_clicked();
+    void on_standBtn_clicked();
 
 private:
-    Ui::Widget *ui;
+    Ui::Widget* ui;
+    void paintEvent(QPaintEvent*);
 };
 #endif // WIDGET_H
