@@ -3,16 +3,16 @@
 
 #include "card.h"
 
-#include <list>
 #include <QMessageBox>
+#include <list>
 
-class Game
-{
+class Game {
 private:
     std::vector<Card> poker;
     std::list<Card*> human;
     std::list<Card*> computer;
     bool is_standed;
+
 public:
     enum {
         Player,
@@ -23,6 +23,7 @@ public:
         Lost,
         Tied
     };
+
 public:
     Game();
     void new_game();

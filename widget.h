@@ -3,17 +3,16 @@
 
 #include "game.h"
 
-#include <QWidget>
 #include <QPaintEvent>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-    class Widget;
+class Widget;
 }
 QT_END_NAMESPACE
 
-class Widget : public QWidget
-{
+class Widget : public QWidget {
     Q_OBJECT
 private:
     Game game;
@@ -25,9 +24,7 @@ public:
 
 private slots:
     void on_newBtn_clicked();
-
     void on_hitBtn_clicked();
-
     void on_standBtn_clicked();
 
 private:

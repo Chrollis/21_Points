@@ -18,7 +18,8 @@ Widget::~Widget()
 {
     delete ui;
 }
-void Widget::paintEvent(QPaintEvent*) {
+void Widget::paintEvent(QPaintEvent*)
+{
     paint.begin(this);
     game.draw(ui->labelPlayer->x(), ui->labelPlayer->y() + ui->labelPlayer->height(), EachLine, paint, Game::Player);
     game.draw(ui->labelRobot->x(), ui->labelRobot->y() + ui->labelRobot->height(), EachLine, paint, Game::Robot);
@@ -37,14 +38,12 @@ void Widget::on_newBtn_clicked()
     update();
 }
 
-
 void Widget::on_hitBtn_clicked()
 {
     game.hit(Game::Player);
     ui->labelPlayer->setText(QString("Your Cards (%1 points):").arg(game.score(Game::Player)));
     update();
 }
-
 
 void Widget::on_standBtn_clicked()
 {
@@ -64,14 +63,10 @@ void Widget::on_standBtn_clicked()
     update();
     QMessageBox msg(QMessageBox::Icon::Question, "Outcome", QString("You %1! Whether restart? ").arg(feedback),
         (QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel));
-    if (QMessageBox::Ok == msg.exec())
-    {
+    if (QMessageBox::Ok == msg.exec()) {
         on_newBtn_clicked();
-    }
-    else
-    {
+    } else {
         this->close();
         exit(0);
     }
 }
-
